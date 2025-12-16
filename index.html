@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>George Ifi — Data Engineer | ETL, ELT, Cloud, and Data Infrastructure</title>
-  <meta name="description" content="George Ifi | Data Engineering for Scalable ETL, ELT & cloud Infrastructure Systems. ETL • ELT • PostgreSQL • Spark • Cloud." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>George Ifi — Data Engineer | ETL, ELT, Cloud & Data Infrastructure</title>
+  <meta name="description" content="George Ifi | Data Engineer specializing in scalable ETL/ELT pipelines, Airflow, Spark, PostgreSQL, Terraform, and cloud-native data platforms." />
+
   <style>
     :root{
       --bg:#0f1724;
@@ -16,19 +17,19 @@
       --text-dim:#9fb8d9;
       --text-soft:#cfe6ff;
       --max-width:1100px;
-      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
       background:linear-gradient(180deg,#071026 0%,#081428 100%);
       color:var(--text-main);
-      display:flex;
-      align-items:center;
-      justify-content:center;
       min-height:100vh;
       padding:32px;
+      display:flex;
+      justify-content:center;
     }
 
     .wrap{width:100%;max-width:var(--max-width)}
@@ -37,129 +38,262 @@
       background:var(--card);
       border-radius:16px;
       padding:28px;
-      box-shadow:0 18px 40px rgba(2,6,23,0.7);
       display:grid;
-      grid-template-columns:340px 1fr;
+      grid-template-columns:320px 1fr;
       gap:28px;
-      align-items:start;
+      border:1px solid var(--border);
+      box-shadow:0 18px 40px rgba(2,6,23,0.7);
+    }
+
+    .avatar-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+      text-align:center;
+    }
+
+    .avatar{
+      width:260px;
+      height:260px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:var(--glass);
+    }
+
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    .badge{
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      font-size:13px;
+      color:var(--text-soft);
+      border:1px solid var(--border);
+      font-weight:500;
+    }
+
+    .meta{font-size:13px;color:var(--text-dim)}
+
+    h1{margin:0;font-size:28px;font-weight:600}
+    .role-line{margin-top:6px;color:var(--accent);font-size:15px}
+
+    .lead{
+      margin:14px 0 20px;
+      font-size:15px;
+      line-height:1.55;
+      color:var(--text-soft);
+      max-width:65ch;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .skill{
+      background:rgba(255,255,255,0.03);
+      padding:7px 10px;
+      border-radius:8px;
+      font-size:13px;
       border:1px solid var(--border);
     }
 
-    .avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
-    .avatar{width:280px;height:280px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);background:var(--glass);display:grid;place-items:center}
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-    .badge{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,0.04);font-size:13px;line-height:1.2;color:var(--text-soft);border:1px solid var(--border);font-weight:500}
-    .meta{font-size:13px;color:var(--text-dim);line-height:1.4}
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:20px;
+    }
 
-    h1{margin:0;font-size:28px;line-height:1.2;font-weight:600;color:var(--text-main)}
-    .role-line{margin-top:4px;font-size:15px;color:var(--accent);font-weight:500}
-    p.lead{margin:12px 0 20px;color:var(--text-soft);opacity:0.95;font-size:15px;line-height:1.5;max-width:60ch}
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-    .skill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.2;border:1px solid var(--border)}
-    .actions{margin-top:16px;display:flex;flex-wrap:wrap;gap:12px}
-    .btn{padding:10px 14px;border-radius:10px;background:var(--accent);color:#04233a;text-decoration:none;font-weight:600;font-size:14px;line-height:1.2;border:1px solid rgba(0,0,0,0.3)}
-    .btn.secondary{background:transparent;border:1px solid var(--border);color:var(--text-main)}
-    section h2, section h3{color:var(--text-main);font-weight:600}
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      background:var(--accent);
+      color:#04233a;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      border:1px solid rgba(0,0,0,0.25);
+    }
 
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:12px}
-    .project-card{background:rgba(255,255,255,0.03);padding:16px;border-radius:12px;border:1px solid var(--border)}
-    .project-head{display:flex;gap:12px;align-items:center}
-    .thumb{width:64px;height:64px;border-radius:8px;overflow:hidden;flex:0 0 64px;background:#071428;display:grid;place-items:center;border:1px solid var(--border)}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .project-title{margin:0 0 4px 0;font-size:16px;line-height:1.3;color:var(--text-main)}
-    .project-desc{font-size:13px;color:var(--text-soft);opacity:0.95;line-height:1.4}
-    .tech-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
-    .tag{font-size:12px;line-height:1.2;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid var(--border)}
-    .project-links{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+    .btn.secondary{
+      background:transparent;
+      color:var(--text-main);
+      border:1px solid var(--border);
+    }
 
-    footer{margin-top:24px;color:var(--text-dim);font-size:13px;line-height:1.4;max-width:65ch}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:18px;
+      margin-top:14px;
+    }
 
-    @media (max-width:880px){.card{grid-template-columns:1fr;}.avatar{width:200px;height:200px}.avatar-wrap{flex-direction:row;gap:14px;text-align:left;align-items:flex-start}.meta{text-align:left}}
+    .project-card{
+      background:rgba(255,255,255,0.03);
+      padding:18px;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+
+    .project-title{margin:0 0 6px;font-size:16px}
+    .project-desc{font-size:13.5px;line-height:1.5;color:var(--text-soft)}
+
+    .tech-tags{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+    }
+
+    .tag{
+      font-size:12px;
+      padding:6px 8px;
+      border-radius:8px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--border);
+    }
+
+    footer{margin-top:24px;font-size:13px;color:var(--text-dim);max-width:65ch}
+
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr}
+      .avatar-wrap{flex-direction:row;align-items:flex-start;text-align:left}
+      .avatar{width:180px;height:180px}
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="card" aria-labelledby="intro-heading">
-      <aside class="avatar-wrap">
-        <figure class="avatar">
-          <!-- Replace the src path below with your actual image path -->
-          <img src="assets/img/pink%20suit%20image2%20-%20Copy.png" alt="George Ifi headshot" loading="lazy" width="280" height="280">
-        </figure>
-        <div class="meta">
-          <div class="badge">Data Engineer • Automation Data QA Specialist</div>
-          <div style="margin-top:8px">Based in, UK · Open to remote, Hybrid  & relocation</div>
-        </div>
-      </aside>
 
-      <section>
-        <h1 id="intro-heading">George Ifi</h1>
-        <div class="role-line">Data Engineering for Scalable ETL, ELT & cloud Infrastructure Systems</div>
-        <p class="lead">I build scalable data pipelines and cloud infrastructures that help organizations turn raw data into actionable insights.With over 5 years of experience in data engineering and infrastructure automation, I specialize in designing modern ETL and ELT workflows using Python, Spark, PostgreSQL, and Terraform (IaC) across AWS, Azure, and GCP. My work emphasizes efficiency, reliability, and reproducibility,enabling teams to automate data flows, enhance analytics performance, and support evidence-based decision-making across diverse sectors, including health, energy, e-commerce, housing, and environmental systems.</p>
+<main class="wrap">
 
-        <div class="skills">
-          <div class="skill">Python</div>
-          <div class="skill">PostgreSQL</div>
-          <div class="skill">Apache Spark</div>
-          <div class="skill">ETL / Orchestration</div>
-          <div class="skill">Airflow & Task Scheduler</div>
-          <div class="skill">Data Quality / Governance</div>
-          <div class="skill">Power BI / Dashboards</div>
-          <div class="skill">Terraform / AWS</div>
-          <div class="skill">Airbyte</div>
-          <div class="skill">CI/CD</div>
-        </div>
+  <!-- INTRO CARD -->
+  <section class="card">
 
-                <div class="actions">
-          <a class="btn" href="#projects">See Projects</a>
-          <a class="btn secondary" href="#contact">Contact</a>
-        
-          <!-- 🔹 View CV in a new tab -->
-          <a class="btn" href="GEORGE IFI_T_cv.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
-        
-          <!-- 🔹 Download CV directly -->
-          <a class="btn secondary" href="GEORGE IFI_T_cv.pdf" download>Download CV</a>
-        </div>
-
-
-        <div style="margin-top:20px">
-          <h2 style="margin:0 0 8px 0;font-size:16px" id="about-heading">About me</h2>
-          <p style="margin:0;font-size:14px;line-height:1.5;color:var(--text-soft);max-width:65ch">A results-driven Data Engineer Consultant at 10Alytics, with proven expertise in building scalable, automated data pipelines and cloud-native analytics solutions.
-Bringing over 4 years of hands-on experience designing ETL and ELT workflows across AWS, Azure, and GCP, I specialize in data warehousing, infrastructure as code (Terraform), Airbyte integration, and CI/CD automation using GitHub Actions and related tools. Skilled in Snowflake, SQL Server, PostgreSQL, and Apache Airflow, with strong proficiency in Python, SQL, and Java for end-to-end data engineering.
-I excel at transforming complex datasets into actionable insights through robust data modeling, orchestration, and visualization using Power BI and Grafana — delivering reliable, high-performance data systems that empower organizations to make faster, smarter, and evidence-driven decisions.</p>
-        </div>
-
-        <footer>
-          <div>Helpful links for reviewers: GitHub repos for ETL pipelines, infrastructure-as-code (Terraform on AWS), and environmental analytics; plus recent research work on energy/sustainability. I am actively looking for roles / research assistantships in data engineering for clean energy, climate tech, or resilient infrastructure.</div>
-        </footer>
-      </section>
-    </section>
-
-    <section id="projects" style="margin-top:32px;color:var(--text-soft)">
-      <h2 style="margin:0 0 8px 0;font-size:20px">Recent Projects</h2>
-      <div class="projects-grid">
-        <article class="project-card">
-          <div class="project-head">
-            <div class="thumb"><img src="assets/img/rentcast-logo.png" alt="ETL pipeline thumbnail"></div>
-            <div style="flex:1">
-              <h3 class="project-title">Real Estate Data Pipeline</h3>
-              <div class="project-desc">Automated property listing ingestion (API → cleaned tables → PostgreSQL star schema → dashboard). Replaced manual spreadsheets and enabled live pricing insights for agents.</div>
-              <div class="tech-tags"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Pandas</span><span class="tag">Dimensional Modelling</span></div>
-              <h3 class="project-title">Serverless Ingestion Pipeline: Airbyte on Terraform for Syncing S3 Data into MotherDuck</h3>
-              <div class="project-desc">Designed and deployed a fully automated ETL pipeline using Terraform-provisioned Airbyte to extract raw sales data from AWS S3 and sync it into a MotherDuck warehouse for analytics and downstream transformation..</div>
-            </div>
-          </div>
-          <div class="project-links"><a class="btn" href="https://github.com/GeorgeIfi/primesqure_API" target="_blank">Real Estate Project Link</a></div>
-          <div class="project-links"><a class="btn" href="https://github.com/GeorgeIfi/Retailio_E-commerce" target="_blank">S3 → MotherDuck Pipeline Link</a></div>
-        </article>
+    <aside class="avatar-wrap">
+      <div class="avatar">
+        <img src="assets/img/pink suit image2 - Copy.png" alt="George Ifi headshot" loading="lazy" />
       </div>
-    </section>
+      <div class="meta">
+        <div class="badge">Data Engineer · Automation & Data QA</div>
+        <div style="margin-top:8px">United Kingdom · Remote · Hybrid · Relocation</div>
+      </div>
+    </aside>
 
-    <section id="contact" style="margin-top:32px;color:var(--text-soft)">
-      <h2 style="margin:0 0 8px 0;font-size:20px">Get in touch</h2>
-      <p style="margin:0 0 8px 0;font-size:14px;line-height:1.5;color:var(--text-soft)">Email: <a href="mailto:back2ifi@gmail.com">back2ifi@gmail.com</a><br>GitHub: <a href="https://github.com/GeorgeIfi">GeorgeIfi</a><br>LinkedIn: <a href="https://www.linkedin.com/in/ifi-george-ifi">linkedin.com/in/ifi-george-ifi</a></p>
+    <section>
+      <h1>George Ifi</h1>
+      <div class="role-line">Scalable ETL / ELT · Cloud-Native Data Platforms · Analytics Engineering</div>
+
+      <p class="lead">
+        Data Engineer with 5+ years of experience designing, automating, and operating production-grade data pipelines.
+        I specialize in Airflow-orchestrated ETL/ELT workflows, cloud data platforms, and Infrastructure as Code using
+        Python, Spark, PostgreSQL, Terraform, and modern analytics tooling across AWS, Azure, and GCP.
+      </p>
+
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">Apache Spark</span>
+        <span class="skill">Apache Airflow</span>
+        <span class="skill">ETL / ELT</span>
+        <span class="skill">Medallion Architecture</span>
+        <span class="skill">Terraform (IaC)</span>
+        <span class="skill">AWS · Azure · GCP</span>
+        <span class="skill">Airbyte</span>
+        <span class="skill">CI/CD</span>
+        <span class="skill">Power BI</span>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn secondary" href="#contact">Contact</a>
+        <a class="btn" href="GEORGE IFI_T_cv.pdf" target="_blank">View CV</a>
+        <a class="btn secondary" href="GEORGE IFI_T_cv.pdf" download>Download CV</a>
+      </div>
+
+      <footer>
+        Actively seeking full-time data engineering roles building scalable ETL/ELT pipelines and cloud-native
+        data platforms across energy, health, finance, e-commerce, and public-sector domains,supporting data-driven
+        decision-making and resilient systems.
+      </footer>
+
     </section>
-  </main>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="margin-top:40px">
+    <h2>Recent Projects</h2>
+
+    <div class="projects-grid">
+
+      <article class="project-card">
+        <h3 class="project-title">Cloud-Native Data Pipeline with Medallion Architecture</h3>
+        <p class="project-desc">
+          Production-grade PostgreSQL-to-S3 pipeline orchestrated with Apache Airflow and AWS services.
+          Implements Bronze, Silver, and Gold layers with automated data quality checks, Parquet optimization,
+          AWS Glue cataloging, and Athena-based analytics. Fully provisioned using Terraform and containerized
+          development environments.
+        </p>
+        <div class="tech-tags">
+          <span class="tag">Airflow</span><span class="tag">AWS S3</span><span class="tag">Glue</span>
+          <span class="tag">Athena</span><span class="tag">PostgreSQL</span><span class="tag">Terraform</span>
+          <span class="tag">Docker</span><span class="tag">Parquet</span>
+        </div>
+        <div class="actions" style="margin-top:12px">
+          <a class="btn" href="https://github.com/GeorgeIfi/airflow_postgres_to_s3_project" target="_blank">GitHub Repo</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <h3 class="project-title">Serverless Ingestion Pipeline — Airbyte on Terraform</h3>
+        <p class="project-desc">
+          Automated ingestion pipeline using Terraform-managed Airbyte to sync raw data from AWS S3 into
+          MotherDuck for downstream analytics and transformations. Emphasizes reproducibility, low
+          operational overhead, and scalable ELT design.
+        </p>
+        <div class="tech-tags">
+          <span class="tag">Airbyte</span><span class="tag">Terraform</span><span class="tag">AWS S3</span>
+          <span class="tag">MotherDuck</span><span class="tag">ELT</span>
+        </div>
+        <div class="actions" style="margin-top:12px">
+          <a class="btn" href="https://github.com/GeorgeIfi/Retailio_E-commerce" target="_blank">GitHub Repo</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <h3 class="project-title">Automated Real Estate Analytics Pipeline</h3>
+        <p class="project-desc">
+          End-to-end API-driven ETL pipeline ingesting property listings into a PostgreSQL star schema.
+          Replaced manual spreadsheet workflows and enabled near real-time pricing analytics and
+          dashboarding for decision-makers.
+        </p>
+        <div class="tech-tags">
+          <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Pandas</span>
+          <span class="tag">Dimensional Modelling</span>
+        </div>
+        <div class="actions" style="margin-top:12px">
+          <a class="btn" href="https://github.com/GeorgeIfi/primesqure_API" target="_blank">GitHub Repo</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="margin-top:40px">
+    <h2>Contact</h2>
+    <p style="font-size:14px;line-height:1.6;color:var(--text-soft)">
+      Email: <a href="mailto:back2ifi@gmail.com">back2ifi@gmail.com</a><br>
+      GitHub: <a href="https://github.com/GeorgeIfi" target="_blank">github.com/GeorgeIfi</a><br>
+      LinkedIn: <a href="https://www.linkedin.com/in/ifi-george-ifi" target="_blank">linkedin.com/in/ifi-george-ifi</a>
+    </p>
+  </section>
+
+</main>
+
 </body>
 </html>
